@@ -1,6 +1,6 @@
 # 🏗️ Havel-Hakimi Algorithm - بررسی توالی گرافیک
 
-**زبان‌ها: 🇬🇧 English | 🇮🇷 فارسی**  
+**زبان‌ها  فارسی : 🇬🇧 : English | 🇮🇷 **  
 
 ## 🌍 About the Project | درباره پروژه
 This project implements the **Havel-Hakimi algorithm** in **C#** to determine whether a given degree sequence is **graphic** (i.e., can form a simple graph).
