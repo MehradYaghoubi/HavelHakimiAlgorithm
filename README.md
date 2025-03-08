@@ -29,6 +29,7 @@ This project implements the **Havel-Hakimi algorithm** in **C#** to determine wh
 git clone https://github.com/MehradYaghoubi/HavelHakimiAlgorithm.git
 
 📌 Example Input & Output | نمونه ورودی و خروجی
+
 📝 Input | ورودی:
 Please enter a degree sequence (e.g., 3,3,2,2,2,1):
 3,2,2,2,1
@@ -60,7 +61,7 @@ Final Result: The sequence is graphic because the last remaining node has a degr
 📝 License | مجوز
 This project is licensed under the MIT License.
 
-این پروژه تحت مجوز MIT منتشر شده است.
+
 
 If you like this project, don't forget to ⭐ star the repository!
 
