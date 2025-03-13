@@ -8,8 +8,11 @@ public sealed class HavelHakimi
     public (bool,string) IsGraphicSequence(List<int> degrees)
     {
         int step = 1;
+
         degrees.Sort();
         degrees.Reverse();
+
+        DisplayMessage("PROCESSING_SEQUENCE_Sorted", degrees);
 
         //درصورتی که کل درجه ها صفر باشن به هرحال گراف تشکیل میشه
         degrees.RemoveAll(d => d == 0);
@@ -26,14 +29,17 @@ public sealed class HavelHakimi
             if (n > degrees.Count)
             {
                 DisplayMessage("STEP", step, degrees);
-                return (false, DisplayMessage("TOO_LARGE_DEGREE"));
+                return (false, DisplayMessage("TOO_LARGE_DEGREE" , n, degrees.Count));
             }
 
-            //میشد از یک حلقه استفاده کرد اما برای نمایش بهتر پاسخ ها این بهتره 
+
+            //میشد از یک حلقه استفاده کرد اما برای نمایش بهتر پاسخ ها از دوتا حلقه استفاده کردم 
             // کاهش درجات
             for (int i = 0; i < n; i++) degrees[i]--;
 
+
             DisplayMessage("STEP", step, degrees);
+
             //بررسی درجه منفی
             for (int i = 0; i < n; i++) if (degrees[i] < 0) return (false, DisplayMessage("NEGATIVE_DEGREE"));
 
@@ -74,6 +80,7 @@ public sealed class HavelHakimi
                 continue;
             }
 
+            
             DisplayMessage("PROCESSING_SEQUENCE", degrees);
             DisplayMessage("FINAL_RESULT", IsGraphicSequence(degrees).Item2);
         }
@@ -103,6 +110,12 @@ public sealed class HavelHakimi
                 Console.ResetColor();
                 break;
 
+            case "PROCESSING_SEQUENCE_Sorted":
+                Console.ForegroundColor = ConsoleColor.Blue;
+                Console.WriteLine($"\nProcessing sequence after sort: [{string.Join(", ", (List<int>)param1)}]");
+                Console.ResetColor();
+                break;
+
             case "STEP":
                 Console.ForegroundColor = ConsoleColor.Cyan;
                 Console.WriteLine($"Step {param1}: [{string.Join(", ", (List<int>)param2)}]");
@@ -111,7 +124,7 @@ public sealed class HavelHakimi
 
             case "TOO_LARGE_DEGREE":
                 Console.ForegroundColor = ConsoleColor.Red;
-                Console.WriteLine("ERROR: A node has a degree equal to or greater than the total number of nodes.");
+                Console.WriteLine($"ERROR: The Selected node with degree {param1} is greater than the remaining nodes, which are equal to {param2} .");
                 Console.ResetColor();
                 return "The sequence is not graphic because a node has a degree equal to or greater than the total number of nodes.";
 
