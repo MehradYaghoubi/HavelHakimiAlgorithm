@@ -361,3 +361,6 @@ MigrationBackup/
 
 # Fody - auto-generated XML schema
 FodyWeavers.xsd
+/Drawing/build/graph_visualizer
+/Drawing/dist
+/Drawing/graph_visualizer.spec
